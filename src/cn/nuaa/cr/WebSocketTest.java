@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import cn.nuaa.search.BWTCodeLines;
+import cn.nuaa.search.Prof;
 
 /**
  * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,
@@ -135,13 +136,25 @@ public class WebSocketTest {
     public static List<String> getRecommendation(String code){
     	
 		try {
-			writeFileContent("F:\\Java\\TestPlugins\\code\\0.txt",new StringBuffer(code));
+			writeFileContent(Prof.filePath + "0.txt",new StringBuffer(code));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
 		return BWTCodeLines.runningDemo2();
     }
+    
+    /*
+    public static void main(String[] args){
+    	List<String> list = getRecommendation("dsadasdas");
+    	for(String s: list){
+    		System.out.println(s);
+    		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    	}
+    	System.out.println(list.size());
+    }
+    */
+
     
 	/**
 	 * 写入文件;

@@ -64,12 +64,12 @@ public class MyFormat {
 	};
 
 	private static String fileName = "Activiti-develop@AbstractActivitiTestCase#assertAndEnsureCleanDb.txt";
-	private static String filePath = "F:\\data\\github\\methodbody\\";
+	private static String filePath = Prof.filePath + "methodbody\\";
 
 	public static void main(String[] args) {
 
 		// 从文件中获取源码;并对其进行格式化;
-		String code = codeFormat(addClassHead(readCodeFromFile("F:\\Java\\TestPlugins\\code\\0.txt")));
+		String code = codeFormat(addClassHead(readCodeFromFile(Prof.filePath + "0.txt")));
 		// 从文件中获取源码;并对其进行格式化;
 		//String code = codeFormat(addClassHead(readCodeFromFile("F:\\data\\github\\methodbody\\" + fileName)));
 
@@ -193,7 +193,7 @@ public class MyFormat {
 			fileName = insFiles[i].getName();
 			System.out.println(fileName);
 			// 从文件中获取源码;并对其进行格式化;
-			String code = codeFormat(addClassHead(readCodeFromFile("F:\\data\\github\\methodbody\\" + fileName)));
+			String code = codeFormat(addClassHead(readCodeFromFile(Prof.filePath + "methodbody\\" + fileName)));
 
 			if (code.contains(" abstract ")) {
 				count++;
@@ -464,7 +464,7 @@ public class MyFormat {
 		}
 		try {
 			if (str.length() > 1) {
-				writeFileContent("F:\\data\\github\\methodVaribleDeclaration\\" + fileName,
+				writeFileContent(Prof.filePath + "methodVaribleDeclaration\\" + fileName,
 						new StringBuffer(str.substring(0, str.length() - 1)));
 			}
 		} catch (IOException e) {
@@ -473,7 +473,7 @@ public class MyFormat {
 		// 存储格式化后的方法体;
 		str = new StringBuffer(code);
 		try {
-			writeFileContent("F:\\data\\github\\methodFormatBody\\" + fileName, new StringBuffer(str));
+			writeFileContent(Prof.filePath + "methodFormatBody\\" + fileName, new StringBuffer(str));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -484,14 +484,14 @@ public class MyFormat {
 		}
 		try {
 			if (str.length() > 1) {
-				writeFileContent("F:\\data\\github\\methodVaribleDeclarationInformation\\" + fileName,
+				writeFileContent(Prof.filePath + "methodVaribleDeclarationInformation\\" + fileName,
 						new StringBuffer(str.substring(0, str.length() - 1)));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		// 存储方法信息;
-		File file = new File("F:\\data\\github\\methodBasicInformation\\" + fileName);
+		File file = new File(Prof.filePath + "methodBasicInformation\\" + fileName);
 		FileOutputStream out;
 		try {
 			out = new FileOutputStream(file);
@@ -551,7 +551,7 @@ public class MyFormat {
 	 * 去掉代码中的空白行;
 	 */
 	public static void removeSpaceLine() {
-		File directory = new File("F:\\data\\github\\methodFormatBody\\");
+		File directory = new File(Prof.filePath + "methodFormatBody\\");
 		File[] insFiles = directory.listFiles();
 		System.out.println(insFiles.length);
 		int line = 0;
@@ -561,7 +561,7 @@ public class MyFormat {
 			String str = "";
 			fileName = insFiles[i].getName();
 			try {
-				FileReader fr = new FileReader("F:\\data\\github\\methodFormatBody\\" + fileName);
+				FileReader fr = new FileReader(Prof.filePath + "methodFormatBody\\" + fileName);
 				BufferedReader br = new BufferedReader(fr);
 				System.out.println(fileName);
 				while ((str = br.readLine()) != null) {
@@ -597,7 +597,7 @@ public class MyFormat {
 		BufferedReader br = null; // 用于包装InputStreamReader,提高处理性能。因为BufferedReader有缓冲的，而InputStreamReader没有。
 		try {
 			String str = "";
-			fis = new FileInputStream("F:\\data\\github\\methodVaribleDeclaration\\" + fileName);// FileInputStream
+			fis = new FileInputStream(Prof.filePath + "methodVaribleDeclaration\\" + fileName);// FileInputStream
 			// 从文件系统中的某个文件中获取字节
 			isr = new InputStreamReader(fis);// InputStreamReader 是字节流通向字符流的桥梁,
 			br = new BufferedReader(isr);// 从字符输入流中读取文件中的内容,封装了一个new
@@ -622,7 +622,7 @@ public class MyFormat {
 
 		try {
 			String str = "";
-			fis = new FileInputStream("F:\\data\\github\\methodVaribleDeclarationInformation\\" + fileName);// FileInputStream
+			fis = new FileInputStream(Prof.filePath + "methodVaribleDeclarationInformation\\" + fileName);// FileInputStream
 			// 从文件系统中的某个文件中获取字节
 			isr = new InputStreamReader(fis);// InputStreamReader 是字节流通向字符流的桥梁,
 			br = new BufferedReader(isr);// 从字符输入流中读取文件中的内容,封装了一个new

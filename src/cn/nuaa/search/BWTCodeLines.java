@@ -35,7 +35,7 @@ public class BWTCodeLines {
 	 */
 	public static void runningDemo() {
 		long startTime = System.currentTimeMillis();// 记录读取数据开始时间;
-		readCode("F:\\data\\github\\methodFormatBody\\");
+		readCode(Prof.filePath + "methodFormatBody\\");
 		System.out.println("read in process finished");
 		long endTime = System.currentTimeMillis();// 记录读取数据结束时间;
 		System.out.println("read in time：" + 1.0 * (endTime - startTime) / 1000 + "s");
@@ -43,7 +43,7 @@ public class BWTCodeLines {
 		while (true) {
 			startTime = System.currentTimeMillis();// 记录查询开始时间;
 
-			List<TokenList> linecode = readCodeFromFile("F:\\data\\github\\methodFormatBody\\0.txt");
+			List<TokenList> linecode = readCodeFromFile(Prof.filePath + "methodFormatBody\\0.txt");
 			SourceCode sc = new SourceCode();
 
 			List<List<TokenList>> cutCode = SourceCodeCutting(linecode);
@@ -124,7 +124,7 @@ public class BWTCodeLines {
 		List<String> codeNames = new ArrayList<String>();
 		List<String> codeContent = new ArrayList<String>();
 		long startTime = System.currentTimeMillis();// 记录读取数据开始时间;
-		readCode("F:\\data\\github\\methodFormatBody\\");
+		readCode(Prof.filePath + "methodFormatBody\\");
 		System.out.println("read in process finished");
 		long endTime = System.currentTimeMillis();// 记录读取数据结束时间;
 		System.out.println("read in time：" + 1.0 * (endTime - startTime) / 1000 + "s");
@@ -132,7 +132,7 @@ public class BWTCodeLines {
 
 		startTime = System.currentTimeMillis();// 记录查询开始时间;
 
-		List<TokenList> linecode = readCodeFromFile("F:\\Java\\TestPlugins\\code\\0.txt");
+		List<TokenList> linecode = readCodeFromFile(Prof.filePath + "0.txt");
 		SourceCode sc = new SourceCode();
 
 		List<List<TokenList>> cutCode = SourceCodeCutting(linecode);
@@ -198,8 +198,8 @@ public class BWTCodeLines {
 		System.out.println("code snippets size：" + codeNames.size());
 		
 		for(int i = 0; i < codeNames.size();i++){
-			System.out.println("F:\\data\\github\\methodbody\\" + codeNames.get(i));
-			codeContent.add(getCodeFromFile("F:\\data\\github\\methodFormatBody\\" + codeNames.get(i)));
+			System.out.println(Prof.filePath + "methodbody\\" + codeNames.get(i));
+			codeContent.add(getCodeFromFile(Prof.filePath + "methodFormatBody\\" + codeNames.get(i)));
 		}
 		return codeContent;
 	}
@@ -620,8 +620,8 @@ public class BWTCodeLines {
 			sc.setName(insFiles[i].getName());
 			codeSnippets.add(sc);
 
-			if (i > 200)
-				break;
+			//if (i > 200)
+			//	break;
 		}
 	}
 
